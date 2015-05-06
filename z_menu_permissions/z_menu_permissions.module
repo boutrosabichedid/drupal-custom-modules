@@ -1,0 +1,28 @@
+<?php 
+
+/**
+ * @file z_menu_permissions.module
+ * Boutros AbiChedid. boutrosa@princeton.edu - May 12, 2014.
+ * A module that overrides Drupal permission system. 
+ * 'z' is to make sure that my module executes after the menu module. 
+ * Drupal executes modules in alphabetical order or if priorities are specifically set.
+ */
+
+//https://api.drupal.org/api/drupal/modules%21system%21system.api.php/function/hook_permission/7 
+function z_menu_permissions_permission() {
+  return array(
+    'add menu items' => array(
+      'title' => t('Add Menu Items'),
+      'description' => t('Allows users to add Menu items from the Node form.'),
+    ),
+  );
+}
+
+//https://api.drupal.org/api/drupal/modules!menu!menu.module/function/menu_form_node_form_alter/7
+function z_menu_permissions_form_node_form_alter(&$form, $form_state) {
+	if (isset($form['menu'])) {
+	  $form['menu']['#access'] = user_access('add menu items');
+	}
+}
+	
+	
