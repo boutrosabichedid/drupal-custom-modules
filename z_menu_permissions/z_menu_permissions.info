@@ -1,0 +1,4 @@
+name = Custom Menu Permission
+description = Boutros AbiChedid. Custom Module that provides additional menu permissions to users at the Node level. The goal here is to give 'content editors' permission to add pages to the menu but NOT give them access to administer the Menu.
+core = 7.x
+package = Custom Modules

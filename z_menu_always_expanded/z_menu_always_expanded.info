@@ -1,0 +1,4 @@
+name = Menu Links Always Expanded
+description = Boutros AbiChedid. Custom Module that allows menu links to always appear as expanded if/when the menu links have children. Since 'content editors' will Not have permission to administer Menus.
+core = 7.x
+package = Custom Modules
