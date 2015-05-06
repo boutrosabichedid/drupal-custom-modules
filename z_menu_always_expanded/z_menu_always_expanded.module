@@ -1,0 +1,19 @@
+<?php 
+
+/**
+ * @file z_menu_always_expanded.module
+ * Boutros AbiChedid. boutrosa@princeton.edu - May 7, 2014.
+ * Custom Module that allows menu links to always appear as expanded if/when the menu links have children. 
+ * Since 'content editors' will Not have permission to administer Menus.
+ * 'z' is to make sure that my module executes after the menu module. 
+ * Drupal executes modules in alphabetical order or if priorities are specifically set.
+ * Refs: https://api.drupal.org/api/drupal/modules%21system%21system.api.php/function/hook_menu_link_alter/7
+ * https://api.drupal.org/api/drupal/includes%21menu.inc/function/menu_link_save/7
+ */
+
+
+function z_menu_always_expanded_menu_link_alter(&$item) {
+  // Make all new menu links expanded by default.
+  $item['expanded'] = 1;
+}
+
