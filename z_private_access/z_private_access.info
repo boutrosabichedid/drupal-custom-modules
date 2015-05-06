@@ -1,4 +1,0 @@
-name = Custom Private Access
-description = Boutros AbiChedid. Custom Module that blocks Anonymous Users from viewing Published Content for the 'Private' Content Type. Sets a NO view permission for Anonymous users for Published Content of the 'Private' Content type. The objective is for Admins to share and publish HELP/HOW TO pages with Authenticated users (Content Editors and Other Admins) without being accessible Publicly. 
-core = 7.x
-package = Custom Modules
