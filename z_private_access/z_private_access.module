@@ -1,23 +1,27 @@
-<?php 
+<?php
 
 /**
- * @file z_private_access.module
+ * @file
+ * z_private_access.module
  * Boutros AbiChedid. boutrosa@princeton.edu - April 23, 2014.
  * A module that overrides Drupal permission system. It does prevents view permissions for Anonymous users by content type.
  * Implements function hook_node_access
  * https://api.drupal.org/api/drupal/modules!node!node.api.php/function/hook_node_access/7
- * 'z' is to make sure that my module executes after the menu module. 
+ * 'z' is to make sure that my module executes after the menu module.
  * Drupal executes modules in alphabetical order or if priorities are specifically set.
  */
- 
-function z_private_access_node_access($node, $op, $account) {
 
+/**
+ * Implements hook_node_access().
+ * https://api.drupal.org/api/drupal/modules%21node%21node.api.php/function/hook_node_access/7
+ */
+function z_private_access_node_access($node, $op, $account) {
   // If $node is a string, the node has not yet been created and we don't care about that case.
   if (is_string($node)) {
     return NODE_ACCESS_IGNORE;
   }
   $type =  $node->type;
-  
+
   //If the operation to be performed is 'view' and Content Type is 'private' and NOT Logged In.
   if ($op == 'view' && $type == 'private' && !$account->uid) {
     return NODE_ACCESS_DENY;
